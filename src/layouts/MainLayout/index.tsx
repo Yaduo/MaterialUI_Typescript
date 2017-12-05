@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { IMainLayout, MainLayoutBase, mapDispatchToProps} from './IMainLayout';
+import { Header } from '../Header';
+import { Footer } from '../Footer';
+
 
 /**
  * Class representing the Main layout. Connect with App Store; and setup initial enviroments
@@ -27,9 +30,9 @@ export class MainLayout extends MainLayoutBase implements IMainLayout {
 	render() {
 		return (
 		<div>
-			{/* Header */}
+			 <Header />
 			<main>{this.props.children}</main>
-			{/* Footer */}
+			 <Footer /> 
 		</div>
 		)
 	}
