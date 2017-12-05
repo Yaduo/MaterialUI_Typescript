@@ -1,11 +1,8 @@
 import { applyMiddleware, createStore, combineReducers, Action } from 'redux';
 import { Store , Dispatch } from 'react-redux'
-// import thunkMiddleware from 'redux-thunk';
-import { rootReducer, rootEpic } from './root'
 import { loggerMiddleware } from "./middleware"
-
 import { createEpicMiddleware } from 'redux-observable';
-
+import { rootReducer, rootEpic } from './root'
 
 const epicMiddleware = createEpicMiddleware(rootEpic);
 

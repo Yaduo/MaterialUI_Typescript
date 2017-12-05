@@ -1,13 +1,15 @@
 import * as React from "react"
 import { Dispatch, connect } from 'react-redux';
+import { RouterState } from 'react-router-redux';
 import { initEnvironment } from '../../store/environment'
+import { getEvents } from '../../store/event';
+
 
 /**
  * Define the HomePage component's states.
  * @interface
  */
 interface State {
-    
 }
 
 /**
@@ -15,7 +17,9 @@ interface State {
  * @interface
  */
 interface ConnectedState {
-
+    currentPath?: string;
+    isFetchingEvent? :boolean;
+    events?: any;
 }
 
 /**
@@ -23,19 +27,27 @@ interface ConnectedState {
  * @interface
  */
 interface ConnectedDispatch {
+    getEvents?: () => void
 }
 
 /**
  * map store state to HomePage component's props
  */
 export const mapStateToProps = (state: any) => {
-    return {}
+    const { location } = state.routing as RouterState;
+    const { events, loading } = state.event
+	return {
+        // currentPath: location.pathname,
+        events,
+        isFetchingEvent: loading
+    };
 };
 
 /**
  * map store dispatch action to MainLayout component's props
  */
 export const mapDispatchToProps = (dispatch: Dispatch<ConnectedDispatch>) => ({
+    getEvents: () => dispatch(getEvents()),    
 });
 
 /**

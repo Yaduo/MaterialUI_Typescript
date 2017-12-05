@@ -7,6 +7,7 @@ import { IHomePage, HomePageBase, mapStateToProps, mapDispatchToProps } from './
 export class HomePage extends HomePageBase implements IHomePage {
 
     componentDidMount() {
+        this.props.getEvents();
     }
     
     render() {
