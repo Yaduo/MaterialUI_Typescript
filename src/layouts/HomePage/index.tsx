@@ -11,6 +11,7 @@ export class HomePage extends HomePageBase implements IHomePage {
     }
     
     render() {
+        const { events, isFetchingEvent } = this.props;
         return (
             <div style={{ padding: 20 }}>
                 
