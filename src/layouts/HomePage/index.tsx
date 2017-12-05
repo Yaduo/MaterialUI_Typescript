@@ -6,6 +6,9 @@ import { IHomePage, HomePageBase, mapStateToProps, mapDispatchToProps } from './
 @(connect as any)(mapStateToProps, mapDispatchToProps)
 export class HomePage extends HomePageBase implements IHomePage {
 
+    componentDidMount() {
+    }
+    
     render() {
         return (
             <div style={{ padding: 20 }}>

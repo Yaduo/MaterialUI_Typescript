@@ -1,12 +1,13 @@
 import * as React from "react"
 import { Dispatch, connect } from 'react-redux';
+import { initEnvironment } from '../../store/environment'
 
 /**
  * Define the HomePage component's states.
  * @interface
  */
 interface State {
-
+    
 }
 
 /**
@@ -35,8 +36,7 @@ export const mapStateToProps = (state: any) => {
  * map store dispatch action to MainLayout component's props
  */
 export const mapDispatchToProps = (dispatch: Dispatch<ConnectedDispatch>) => ({
-
-}); 
+});
 
 /**
  * Base class for Home Page. derived from React.Component; and define the PropType & StateType
