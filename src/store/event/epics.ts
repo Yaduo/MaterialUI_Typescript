@@ -2,7 +2,7 @@ import "rxjs/Rx";
 import { ActionsObservable } from "redux-observable";
 import { Observable } from "rxjs/Rx";
 import { ajax } from 'rxjs/observable/dom/ajax';
-import { ACTION, getEvents,getEventSuccess, receivedEventData, getEventFailure } from './actions';
+import { ACTION, getEvents,getEventSuccess, receivedEventData, getEventFailure, receivedEventLocationData } from './actions';
 import { ApiHelper } from '../../common/utils/ApiHelper';
 
 const testApi = `https://api1tst.richmond.ca:5121/api/1.0/geteventsdemo`
@@ -19,6 +19,7 @@ const testApi = `https://api1tst.richmond.ca:5121/api/1.0/geteventsdemo`
  */
 export const fatchEventsEpic = (action$:ActionsObservable<any>) => 
     action$.ofType(ACTION.FETCH_EVENT_REQUEST)
+        .delay(3000) // TODO: intend to delay to test the loading feature
         .mergeMap(action => 
             ajax({ 
                 url: testApi, 
@@ -34,6 +35,24 @@ export const fatchEventsEpic = (action$:ActionsObservable<any>) =>
                 )}
             ) 
             .catch(error => Observable.of(getEventFailure()))  
+        );
+
+export const fatchEventLocationEpic = (action$:ActionsObservable<any>) => 
+    action$.ofType(ACTION.FETCH_EVENT_LOCATION_REQUEST)
+        .mergeMap(action => 
+            ajax({ 
+                url: action.payload.url, 
+                method: 'GET',
+                crossDomain: true, 
+                createXHR: function () { return new XMLHttpRequest(); }
+            })
+            .takeUntil(action$.ofType(ACTION.FETCH_EVENT_LOCATION_CANCEL))
+            .flatMap(data => {
+                const location = data.response.results[0].geometry.location
+                return Observable.concat(
+                    Observable.of(receivedEventLocationData(location)),
+                )}
+            ) 
         );
 
 

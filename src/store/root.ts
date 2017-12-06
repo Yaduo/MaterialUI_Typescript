@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { combineEpics } from 'redux-observable';
 import { routerReducer as routing } from 'react-router-redux';
 import { environment, initEnvironmentEpic } from './environment'
-import { event, fatchEventsEpic } from './event'
+import { event, fatchEventsEpic, fatchEventLocationEpic } from './event'
 // import { authed, signInEpic, authInitEpic, signInWithAccessTokenEpic, saveAccessTokenEpic, signOutEpic } from './authed'
 
 /**
@@ -17,5 +17,6 @@ export const rootReducer = combineReducers({
 
 export const rootEpic = combineEpics(
 	initEnvironmentEpic,
-	fatchEventsEpic
+	fatchEventsEpic,
+	fatchEventLocationEpic
 )

@@ -2,7 +2,7 @@ import * as React from "react"
 import { Dispatch, connect } from 'react-redux';
 import { RouterState } from 'react-router-redux';
 import { initEnvironment } from '../../store/environment'
-import { getEvents } from '../../store/event';
+import { getEvents, getEventLocation, selectEvent } from '../../store/event';
 
 
 /**
@@ -10,8 +10,9 @@ import { getEvents } from '../../store/event';
  * @interface
  */
 interface State {
-    redirect: boolean;
-    selectedEventId: number;
+}
+interface PropType {
+    params? : any
 }
 
 /**
@@ -19,9 +20,11 @@ interface State {
  * @interface
  */
 interface ConnectedState {
-    currentPath?: string;
+    urlId?: string;
     isFetchingEvent? :boolean;
     events?: any;
+    eventLocation?: any;
+    selectedEventId?: any
 }
 
 /**
@@ -30,18 +33,22 @@ interface ConnectedState {
  */
 interface ConnectedDispatch {
     getEvents?: () => void
+    getEventLocation?: (url: string) => void
+    selectEvent?: (id: any) => void
 }
 
 /**
  * map store state to HomePage component's props
  */
-export const mapStateToProps = (state: any) => {
+export const mapStateToProps = (state: any, ownProps: any) => {
     const { location } = state.routing as RouterState;
-    const { events, loading } = state.event
+    const { events, loading, selectedEventLocation, selectedEventId } = state.event
 	return {
-        // currentPath: location.pathname,
+        urlId: ownProps.match.params.id,
         events,
-        isFetchingEvent: loading
+        isFetchingEvent: loading,
+        eventLocation: selectedEventLocation,
+        selectedEventId
     };
 };
 
@@ -49,7 +56,9 @@ export const mapStateToProps = (state: any) => {
  * map store dispatch action to MainLayout component's props
  */
 export const mapDispatchToProps = (dispatch: Dispatch<ConnectedDispatch>) => ({
-    getEvents: () => dispatch(getEvents()),    
+    getEventLocation: (url: string) => dispatch(getEventLocation(url)),  
+    getEvents: () => dispatch(getEvents()), 
+    selectEvent: (id: any) => dispatch(selectEvent(id)) 
 });
 
 /**
@@ -57,11 +66,11 @@ export const mapDispatchToProps = (dispatch: Dispatch<ConnectedDispatch>) => ({
  * @abstract
  * @extends React.Component
  */
-export abstract class HomePageBase extends React.Component<ConnectedState & ConnectedDispatch, State> { }
+export abstract class EventPageBase extends React.Component<ConnectedState & ConnectedDispatch & PropType, State> { }
 
 /**
  * IHomePage
  * @interface
  */
-export interface IHomePage { 
+export interface IEventPage { 
 };

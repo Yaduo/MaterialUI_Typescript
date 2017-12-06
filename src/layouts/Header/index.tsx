@@ -1,8 +1,8 @@
 import './style.scss'
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { IHeader, HeaderBase, mapDispatchToProps} from './IHeader';
-import { AppBar, Toolbar, Typography, Button, IconButton } from 'material-ui';
+import { IHeader, HeaderBase, mapDispatchToProps } from './IHeader';
+import { AppBar, Toolbar, Typography, Button, IconButton, Icon } from 'material-ui';
 import MenuIcon from 'material-ui-icons/Menu';
 import { Container } from '../../components';
 
@@ -20,13 +20,13 @@ export class Header extends HeaderBase implements IHeader {
 		<Container fluid className='header-bar'>
 			<AppBar position="static" color="default">
 				<Toolbar>
-				<IconButton color="contrast" aria-label="Menu">
-					<MenuIcon />
+				<IconButton aria-label="Menu" className='logo-item' >
+					<img className="logo" src={require("../../assets/images/logo.png")} />
 				</IconButton>
-				<Typography type="title" color="inherit">
-					Title
+				<Typography className="title" type="title" color="inherit">
+					Hello Richmond
 				</Typography>
-				<Button color="contrast">Login</Button>
+				<Button color="contrast">Events</Button>
 				</Toolbar>
 			</AppBar>
 		</Container>

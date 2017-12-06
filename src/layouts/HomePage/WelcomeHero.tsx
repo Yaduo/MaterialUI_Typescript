@@ -25,7 +25,7 @@ export class WelcomeHero extends React.Component<PropTypes, any> {
                 <Grid container>
                     <Grid item md={12} lg={6}>
                         <div className="welcome-text pl-l0 left">
-                            <h1 className="welcome-text-title">Welcome to the future of creative education</h1>
+                            <h1 className="welcome-text-title">Welcome to the City of richmond</h1>
                             <p>Kadenze brings together educators, artists, and engineers from leading universities across the globe to provide world-class education in the fields of art and creative technology.</p>
                             <Button>Get Start</Button>
                         </div>
@@ -35,7 +35,7 @@ export class WelcomeHero extends React.Component<PropTypes, any> {
                             <div className="embed-responsive">
                                 <ReactPlayer.default 
                                     width='100%'
-                                    url={'https://player.vimeo.com/video/112505592?api=1'}
+                                    url={'https://www.youtube.com/watch?v=IYe-fW2lcGw&t=18s'}
                                 />
                             </div>
                         </div>

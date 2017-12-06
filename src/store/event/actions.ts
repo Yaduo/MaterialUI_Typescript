@@ -5,7 +5,15 @@ export const ACTION = {
     FETCH_EVENT_SUCCESS: "FETCH_EVENT_SUCCESS",
 	FETCH_EVENT_CANCEL: "FETCH_EVENT_CANCEL",
 	FETCH_EVENT_FAILURE: "FETCH_EVENT_FAILURE",
-	RECEIVED_EVENT_DATA: "RECEIVED_EVENT_DATA"
+	RECEIVED_EVENT_DATA: "RECEIVED_EVENT_DATA",
+
+	FETCH_EVENT_LOCATION_REQUEST: "FETCH_EVENT_LOCATION_REQUEST",
+    FETCH_EVENT_LOCATION_SUCCESS: "FETCH_EVENT_LOCATION_SUCCESS",
+	FETCH_EVENT_LOCATION_CANCEL: "FETCH_EVENT_LOCATION_CANCEL",
+	FETCH_EVENT_LOCATION_FAILURE: "FETCH_EVENT_LOCATION_FAILURE",
+	RECEIVED_EVENT_LOCATION_DATA: "RECEIVED_EVENT_LOCATION_DATA",
+
+	SELECT_EVENT: 'SELECT_EVENT'
 }
 
 /**
@@ -28,10 +36,22 @@ export const getEventFailure = () => ({
 	payload: mockupData.events
 })
 
-/**
- * data received
- */
 export const receivedEventData = (events: any) => ({
 	type: ACTION.RECEIVED_EVENT_DATA,
 	payload: { events }
+})
+
+export const getEventLocation = (url: string) => ({
+	type: ACTION.FETCH_EVENT_LOCATION_REQUEST,
+	payload: { url: url }
+})
+
+export const receivedEventLocationData = (data: any) => ({
+	type: ACTION.RECEIVED_EVENT_LOCATION_DATA,
+	payload: data
+})
+
+export const selectEvent = (eventId:any) => ({
+	type: ACTION.SELECT_EVENT,
+	payload: eventId
 })

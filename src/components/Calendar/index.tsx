@@ -14,7 +14,7 @@ interface PropTypes {
 export class Calendar extends React.Component<PropTypes, any> {
   render() {
     return (
-        <div>
+        <div className='event-calendar'>
           <BigCalendar
                 {...this.props}
                 events={events}

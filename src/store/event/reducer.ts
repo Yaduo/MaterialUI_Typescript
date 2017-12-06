@@ -3,10 +3,12 @@ import { ACTION } from './actions'
 // the initial state for environment 
 const initialState: any = {
     loading: false,
-    events: []
+    events: [],
+    selectedEventId: 99999,
+    selectedEventLocation: {lat: 0, lng: 0}
 };
 
-export function event(state = initialState, action: any) {
+export function event(state = initialState, action: any) {    
     switch (action.type) {
         case ACTION.FETCH_EVENT_REQUEST:
             return { ...state, loading: true }
@@ -24,6 +26,12 @@ export function event(state = initialState, action: any) {
 
         case ACTION.RECEIVED_EVENT_DATA:
             return { ...state, events: action.payload }
+
+        case ACTION.RECEIVED_EVENT_LOCATION_DATA: 
+            return { ...state, selectedEventLocation: action.payload }
+
+        case ACTION.SELECT_EVENT:
+            return { ...state, selectedEventId: action.payload }
 
         default:
             return state;

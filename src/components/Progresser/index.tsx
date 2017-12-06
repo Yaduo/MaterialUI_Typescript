@@ -11,7 +11,7 @@ interface PropTypes {
 export class Progresser extends React.Component<PropTypes, any> {
 
     renderCircular(){
-        return( <CircularProgress style={{ color: purple[500] }} thickness={7} />);
+        return( <CircularProgress style={{ color: purple[500], textAlign: 'center' }} thickness={7} />);
     }
 
     renderLinear(){

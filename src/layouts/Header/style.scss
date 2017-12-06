@@ -2,11 +2,40 @@
 
 .header-bar {
     header.MuiAppBar-colorDefault-5 {
+        padding-top: 20px;
         background-color: var(--dark-dark-blue);
         color: white;
         width: 100%;
         z-index: 999;
         border-radius: 0;
         box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4) !important;
+    }
+    .title {
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+        font-size: 2.5em;
+        font-weight: 200; 
+    }
+    .logo-item {
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+        font-size: 2em;
+        font-weight: 100;
+        img {
+            width: 3rem;
+            margin-right: 1.5rem;
+        }
+    }
+    button{
+        margin-left: 10px;
+        z-index: 999;
+        color: $text-color-on-primary;
+        font-family: "Roboto", sans-serif;
+        font-size: 2.3em;
+        font-weight: 100;
+        &:hover{
+            color: #ffffff;
+            background: rgba(0,0,0, 0.4);
+        }
     }
 }

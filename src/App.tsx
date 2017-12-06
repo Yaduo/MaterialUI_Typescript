@@ -4,8 +4,7 @@ import * as ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import store from './store'
-
-import { MainLayout, HomePage } from './layouts'
+import { MainLayout, HomePage, EventPage } from './layouts'
 
 /**
  * App entrance & App routes
@@ -18,7 +17,8 @@ function App(){
 			<MainLayout>
 				<Router>
 					<Switch>
-						<Route path="/" component={HomePage}/>
+						<Route exact path="/" component={HomePage}/>
+						<Route path={"/events/:id"} component={EventPage}/>
 					</Switch>
 				</Router>
 			</MainLayout>
