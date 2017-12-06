@@ -1,0 +1,15 @@
+@import '../../styles/constants.scss';
+
+.hero-container {
+    padding-top: 20px;
+    .hero-inner-container {
+        opacity: 0.9;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        min-height: 555px;
+        background-color: $secondary-color-dark;
+        box-shadow: 5px 5px 25px 0px rgba(46,61,73,0.4);
+        border-radius: 5px;
+    }
+}

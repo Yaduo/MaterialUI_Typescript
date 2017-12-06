@@ -1,0 +1,16 @@
+.particles-js-background {
+    z-index: -1;
+    width: inherit !important;
+    height: inherit !important;
+    #particles-js{
+        width: inherit !important;
+        height: inherit !important;
+    }
+    canvas {
+        width: inherit !important;
+        height: inherit !important;
+        top: 0;
+        display:block;
+        position: absolute;
+    }
+}

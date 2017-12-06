@@ -1,9 +1,9 @@
+import "./styles/site.scss";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import store from './store'
-import { Hello } from "./components/Hello";
 
 import { MainLayout, HomePage } from './layouts'
 

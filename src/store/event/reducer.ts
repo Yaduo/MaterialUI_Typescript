@@ -3,7 +3,7 @@ import { ACTION } from './actions'
 // the initial state for environment 
 const initialState: any = {
     loading: false,
-    events: null
+    events: []
 };
 
 export function event(state = initialState, action: any) {

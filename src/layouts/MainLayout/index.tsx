@@ -4,7 +4,6 @@ import { IMainLayout, MainLayoutBase, mapDispatchToProps} from './IMainLayout';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
 
-
 /**
  * Class representing the Main layout. Connect with App Store; and setup initial enviroments
  * @extends React.Component
