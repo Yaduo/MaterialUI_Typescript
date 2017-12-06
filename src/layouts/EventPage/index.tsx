@@ -18,8 +18,6 @@ export class EventPage extends EventPageBase implements IEventPage {
         const { urlId, events, selectedEventId } = this.props;
         const event = events[urlId]; 
         if(event!= null && event!= undefined && urlId != selectedEventId) {
-            var ddd =generateGoogleMapLocationUrl(GoogleAPIKey, event.location + ",Richmond,BC")
-            console.log(ddd);
             this.props.getEventLocation(generateGoogleMapLocationUrl(GoogleAPIKey, event.location + ",Richmond,BC")); 
             this.props.selectEvent(urlId); 
         } 

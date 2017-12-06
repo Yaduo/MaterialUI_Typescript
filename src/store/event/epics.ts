@@ -19,7 +19,7 @@ const testApi = `https://api1tst.richmond.ca:5121/api/1.0/geteventsdemo`
  */
 export const fatchEventsEpic = (action$:ActionsObservable<any>) => 
     action$.ofType(ACTION.FETCH_EVENT_REQUEST)
-        .delay(3000) // TODO: intend to delay to test the loading feature
+        // .delay(3000) // TODO: intend to delay to test the loading feature
         .mergeMap(action => 
             ajax({ 
                 url: testApi, 
