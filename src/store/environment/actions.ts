@@ -1,5 +1,4 @@
 import { Dispatch } from 'react-redux';
-import * as ActionTypes from '../../common/constants/ActionTypes';
 
 export const ACTION = {
 	INIT_ENVIRONMENT: "INIT_ENVIRONMENT",
@@ -35,7 +34,7 @@ export const changeLanguage = (langCode?: string): any => {
         userLanguage = navigator.language != null ? navigator.language : 'en';
     }
     return {
-        type: ActionTypes.CHANGE_LANGUAGE,
+        type: ACTION.CHANGE_LANGUAGE,
         payload: { userLanguage }
     };
 }
